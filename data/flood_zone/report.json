@@ -1,0 +1,23 @@
+{
+  "region": "Shivamogga & Bhadra Reservoir, Karnataka, India",
+  "acquisitions": {
+    "baseline_monsoon": "2026-07-20T13:27:40Z",
+    "post_monsoon": "2026-10-25T00:25:20Z"
+  },
+  "bounds": {
+    "south": 13.65,
+    "west": 75.45,
+    "north": 14.05,
+    "east": 75.8
+  },
+  "metrics": {
+    "analyzed_area_sq_km": 1673.11,
+    "monsoon_receded_water_sq_km": 231.23,
+    "new_waterlogging_or_drop_sq_km": 224.94,
+    "mean_backscatter_change_db": 0.04
+  },
+  "legend": {
+    "cyan_blue": "Monsoon water receded / exposed riverbanks & reservoirs (+3.5 dB shift)",
+    "orange_red": "New waterlogging / sharp radar backscatter drop (-3.5 dB shift)"
+  }
+}

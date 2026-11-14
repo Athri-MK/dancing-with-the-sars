@@ -1,0 +1,26 @@
+{
+  "title": "Amazon Deforestation — Porto Velho (Rondonia, Brazil)",
+  "bounds": {
+    "south": -9.177644899063981,
+    "west": -64.61266978800624,
+    "north": -8.961536684140816,
+    "east": -64.393447624574
+  },
+  "acquisitions": {
+    "before_date": "Wet Season Canopy Baseline (2026)",
+    "after_date": "Dry Season Clearing Scan (2026)",
+    "polarization": "HHHH / HVHV (L-Band Volume Scattering)"
+  },
+  "metrics": {
+    "analyzed_area_sq_km": 576.80,
+    "canopy_loss_pattern": "Fishbone Road & Pasture Expansion",
+    "primary_mechanism": "Volume Scattering Drop (HVHV)"
+  },
+  "cause": "Dense tropical rainforest canopies scatter L-band radar waves in multiple directions within branches and trunks (volume scattering), producing high HVHV backscatter. When forest plots along Porto Velho's frontier corridors are cleared for pasture or agriculture, volume scattering collapses into lower surface backscatter from bare soil.",
+  "sar_vs_optical_advantage": "Persistent equatorial cloud cover and seasonal biomass burning smoke hide illegal logging for months on optical imagery. NISAR L-band radar penetrates both dense tropical clouds and thick forest canopies to detect structural biomass loss early.",
+  "community_impact": "Early radar detection of forest fragmentation near Porto Velho helps environmental agencies curb illegal logging, protect indigenous watershed corridors along the Madeira River basin, and monitor regional carbon storage loss.",
+  "legend": {
+    "orange_red": "Sharp backscatter drop — forest canopy clearing & bare soil exposure",
+    "cyan_blue": "Backscatter increase — wet season soil saturation or regrowth roughness"
+  }
+}

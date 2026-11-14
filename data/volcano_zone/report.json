@@ -1,0 +1,26 @@
+{
+  "title": "Kilauea Volcano Eruption (Hawaii, USA)",
+  "bounds": {
+    "south": 19.338318337048115,
+    "west": -155.35378196522197,
+    "north": 19.475472442001045,
+    "east": -155.2130124269819
+  },
+  "acquisitions": {
+    "before_date": "Pre-Eruption Baseline (2026)",
+    "after_date": "Post-Episode 56 Lava Flow (2026)",
+    "polarization": "HHHH / HVHV (L-Band)"
+  },
+  "metrics": {
+    "analyzed_area_sq_km": 225.40,
+    "eruptive_zone_radius_km": 7.50,
+    "primary_mechanism": "Surface Roughness & Crater Collapse"
+  },
+  "cause": "During Kilauea's Episode 56 activity at Halema'uma'u crater, high lava fountains deposited fresh, jagged a'a lava flows and volcanic tephra across the summit caldera. This sharp increase in surface roughness—combined with crater floor subsidence—dramatically altered L-band radar backscatter compared to the pre-eruption baseline.",
+  "sar_vs_optical_advantage": "Thick volcanic gas plumes, sulfur dioxide haze, and dense vog obscure active lava vents from optical satellites during eruptions. NISAR L-band radar waves cut straight through volcanic smoke and ash clouds day and night to map new lava boundaries.",
+  "community_impact": "Mapping fresh lava emplacement and ground deformation in real time supports Hawaii Volcanoes National Park hazard zoning, protects nearby Chain of Craters infrastructure, and helps civil defense teams issue timely air-quality and road-closure alerts.",
+  "legend": {
+    "orange_red": "High backscatter increase — fresh jagged lava flows & rough tephra deposits",
+    "cyan_blue": "Backscatter drop — smooth ponded lava lake crust or ash-blanketed surfaces"
+  }
+}

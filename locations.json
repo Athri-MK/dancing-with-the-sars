@@ -1,0 +1,32 @@
+[
+  {
+    "id": "flood_zone",
+    "title": "Shivamogga & Bhadra Reservoir, Karnataka, India",
+    "event_type": "Monsoon Flooding & Waterlogging",
+    "marker_color": "#38bdf8",
+    "center": [13.85, 75.625],
+    "bounds": [[13.65, 75.45], [14.05, 75.80]],
+    "overlay": "data/flood_zone/overlay.png",
+    "report": "data/flood_zone/report.json"
+  },
+  {
+    "id": "volcano_zone",
+    "title": "Kilauea Volcano Eruption (Hawaii, USA)",
+    "event_type": "Volcanic Lava & Ash",
+    "marker_color": "#f97316",
+    "center": [19.4069, -155.2834],
+    "bounds": [[19.338318337048115, -155.35378196522197], [19.475472442001045, -155.2130124269819]],
+    "overlay": "data/volcano_zone/overlay.png",
+    "report": "data/volcano_zone/report.json"
+  },
+  {
+    "id": "forest_zone",
+    "title": "Amazon Deforestation — Porto Velho (Rondônia, Brazil)",
+    "event_type": "Canopy & Biomass Loss",
+    "marker_color": "#facc15",
+    "center": [-9.0696, -64.5030],
+    "bounds": [[-9.177644899063981, -64.61266978800624], [-8.961536684140816, -64.393447624574]],
+    "overlay": "data/forest_zone/overlay.png",
+    "report": "data/forest_zone/report.json"
+  }
+]
