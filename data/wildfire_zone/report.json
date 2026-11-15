@@ -1,0 +1,22 @@
+{
+  "region": "California Wildfire Burn Scar Analysis, USA",
+  "acquisitions": {
+    "pre_event": "2024-07-18T00:00:00Z",
+    "post_event": "2024-10-10T00:00:00Z"
+  },
+  "bounds": {
+    "south": 36.4889,
+    "west": -121.8571,
+    "north": 38.4069,
+    "east": -118.5661
+  },
+  "metrics": {
+    "analyzed_area_sq_km": 4360.3,
+    "burned_area_sq_km": 4360.3,
+    "mean_backscatter_change_db": -3.38
+  },
+  "legend": {
+    "cyan_blue": "Pre-fire forest & chaparral canopy baseline (Sentinel-1 C-Band VH)",
+    "orange_red": "Severe wildfire burn scar (< -2.5 dB VH backscatter drop)"
+  }
+}

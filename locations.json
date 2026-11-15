@@ -28,5 +28,25 @@
     "bounds": [[-9.177644899063981, -64.61266978800624], [-8.961536684140816, -64.393447624574]],
     "overlay": "data/forest_zone/overlay.png",
     "report": "data/forest_zone/report.json"
+  },
+  {
+    "id": "wildfire_zone",
+    "title": "California Wildfire Burn Scar Analysis, USA",
+    "event_type": "Wildfire Burn Scar & Canopy Loss",
+    "marker_color": "#ff4500",
+    "center": [37.4479, -120.2116],
+    "bounds": [[36.48891210117963, -121.85710135914353], [38.40691210117963, -118.56610135914353]],
+    "overlay": "data/wildfire_zone/overlay.png",
+    "report": "data/wildfire_zone/report.json"
+  },
+  {
+    "id": "oil_spill_zone",
+    "title": "Red Sea Marine Oil Spill (Al Hudaydah Coast)",
+    "event_type": "Marine Oil Slick & Surface Dampening",
+    "marker_color": "#ff00ff",
+    "center": [14.3265, 42.7739],
+    "bounds": [[13.353049493151186, 41.48693608971294], [15.300049493151187, 44.06093608971294]],
+    "overlay": "data/oil_spill_zone/overlay.png",
+    "report": "data/oil_spill_zone/report.json"
   }
 ]

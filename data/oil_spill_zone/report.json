@@ -1,0 +1,22 @@
+{
+  "region": "Red Sea Marine Oil Spill (Al Hudaydah Coast)",
+  "acquisitions": {
+    "pre_event": "2024-08-14T00:00:00Z",
+    "post_event": "2024-08-26T00:00:00Z"
+  },
+  "bounds": {
+    "south": 13.353,
+    "west": 41.4869,
+    "north": 15.3,
+    "east": 44.0609
+  },
+  "metrics": {
+    "analyzed_area_sq_km": 4404.73,
+    "oil_slick_area_sq_km": 4404.73,
+    "mean_backscatter_change_db": -4.55
+  },
+  "legend": {
+    "cyan_blue": "Pre-spill calm sea surface radar return (Sentinel-1A C-Band VV)",
+    "orange_red": "Detected marine oil slick (> 3.5 dB VV backscatter dampening)"
+  }
+}
