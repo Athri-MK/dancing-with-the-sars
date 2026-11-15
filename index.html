@@ -22,26 +22,345 @@
 
 <body>
   <header class="app-header">
-    <button id="sidebar-toggle" class="icon-button" type="button"
-            aria-controls="sidebar" aria-expanded="false" aria-label="Toggle science panel">
-      <span class="icon-button__bars" aria-hidden="true"></span>
-    </button>
+    <!-- Orbital Earth Horizon & Satellite Backdrop -->
+    <div class="header-orbit-backdrop" aria-hidden="true">
+      <svg class="orbit-horizon-svg" viewBox="0 0 1440 78" preserveAspectRatio="none">
+        <defs>
+          <!-- Deep space background gradient -->
+          <linearGradient id="spaceGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#02040a"/>
+            <stop offset="45%" stop-color="#040b18"/>
+            <stop offset="100%" stop-color="#081932"/>
+          </linearGradient>
 
-    <div class="brand">
-      <span class="brand__mark" aria-hidden="true"></span>
-      <div class="brand__text">
-        <h1 class="brand__title">Dancing with the SARs</h1>
-        <p class="brand__subtitle">NISAR L-band radar: before &amp; after views of a changing Earth</p>
+          <!-- Earth body fill gradient (curved night side) -->
+          <linearGradient id="earthBodyGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#051226"/>
+            <stop offset="25%" stop-color="#081b38"/>
+            <stop offset="60%" stop-color="#040f22"/>
+            <stop offset="100%" stop-color="#020712"/>
+          </linearGradient>
+
+          <!-- Outer atmospheric exosphere glow gradient -->
+          <linearGradient id="outerLimbGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#0284c7" stop-opacity="0.25"/>
+            <stop offset="20%" stop-color="#0284c7" stop-opacity="0.6"/>
+            <stop offset="50%" stop-color="#38bdf8" stop-opacity="0.85"/>
+            <stop offset="80%" stop-color="#0284c7" stop-opacity="0.6"/>
+            <stop offset="100%" stop-color="#0284c7" stop-opacity="0.25"/>
+          </linearGradient>
+
+          <!-- Core atmospheric stratosphere limb gradient -->
+          <linearGradient id="coreLimbGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.4"/>
+            <stop offset="25%" stop-color="#38bdf8" stop-opacity="0.95"/>
+            <stop offset="50%" stop-color="#e0f2fe" stop-opacity="1"/>
+            <stop offset="75%" stop-color="#38bdf8" stop-opacity="0.95"/>
+            <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.4"/>
+          </linearGradient>
+
+          <!-- Inner Earth atmospheric haze -->
+          <radialGradient id="earthHaze" cx="50%" cy="28%" r="65%">
+            <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.22"/>
+            <stop offset="35%" stop-color="#0ea5e9" stop-opacity="0.1"/>
+            <stop offset="75%" stop-color="#0369a1" stop-opacity="0.03"/>
+            <stop offset="100%" stop-color="transparent" stop-opacity="0"/>
+          </radialGradient>
+
+          <!-- Atmospheric blur filters -->
+          <filter id="glow-exosphere" x="-10%" y="-50%" width="120%" height="200%">
+            <feGaussianBlur stdDeviation="8"/>
+          </filter>
+          <filter id="glow-stratosphere" x="-10%" y="-30%" width="120%" height="160%">
+            <feGaussianBlur stdDeviation="3.5"/>
+          </filter>
+          <filter id="glow-troposphere" x="-5%" y="-20%" width="110%" height="140%">
+            <feGaussianBlur stdDeviation="1.2"/>
+          </filter>
+          <filter id="city-blur" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="2"/>
+          </filter>
+        </defs>
+
+        <!-- Deep cosmic space background -->
+        <rect width="1440" height="78" fill="url(#spaceGrad)"/>
+
+        <!-- Starfield in deep space (above Earth's horizon) -->
+        <g class="starfield" opacity="0.85">
+          <!-- Twinkling stars with glints -->
+          <g transform="translate(140, 10)">
+            <line x1="-4" y1="0" x2="4" y2="0" stroke="#7dd3fc" stroke-width="0.6" opacity="0.8"/>
+            <line x1="0" y1="-4" x2="0" y2="4" stroke="#7dd3fc" stroke-width="0.6" opacity="0.8"/>
+            <circle cx="0" cy="0" r="1.1" fill="#ffffff"/>
+          </g>
+          <g transform="translate(420, 8)">
+            <line x1="-3.5" y1="0" x2="3.5" y2="0" stroke="#38bdf8" stroke-width="0.6" opacity="0.75"/>
+            <line x1="0" y1="-3.5" x2="0" y2="3.5" stroke="#38bdf8" stroke-width="0.6" opacity="0.75"/>
+            <circle cx="0" cy="0" r="1.0" fill="#ffffff"/>
+          </g>
+          <g transform="translate(880, 11)">
+            <line x1="-4" y1="0" x2="4" y2="0" stroke="#7dd3fc" stroke-width="0.6" opacity="0.85"/>
+            <line x1="0" y1="-4" x2="0" y2="4" stroke="#7dd3fc" stroke-width="0.6" opacity="0.85"/>
+            <circle cx="0" cy="0" r="1.2" fill="#ffffff"/>
+          </g>
+          <g transform="translate(1290, 9)">
+            <line x1="-3.5" y1="0" x2="3.5" y2="0" stroke="#bae6fd" stroke-width="0.6" opacity="0.75"/>
+            <line x1="0" y1="-3.5" x2="0" y2="3.5" stroke="#bae6fd" stroke-width="0.6" opacity="0.75"/>
+            <circle cx="0" cy="0" r="0.95" fill="#ffffff"/>
+          </g>
+
+          <!-- Crisp multi-magnitude star points -->
+          <circle cx="35" cy="14" r="0.7" fill="#ffffff" opacity="0.8"/>
+          <circle cx="75" cy="8" r="0.9" fill="#e0f2fe" opacity="0.9"/>
+          <circle cx="105" cy="21" r="0.5" fill="#93c5fd" opacity="0.6"/>
+          <circle cx="195" cy="16" r="0.8" fill="#ffffff" opacity="0.75"/>
+          <circle cx="250" cy="6" r="1.0" fill="#fef08a" opacity="0.85"/>
+          <circle cx="285" cy="18" r="0.6" fill="#7dd3fc" opacity="0.65"/>
+          <circle cx="330" cy="11" r="0.75" fill="#ffffff" opacity="0.7"/>
+          <circle cx="370" cy="22" r="0.5" fill="#93c5fd" opacity="0.5"/>
+          <circle cx="470" cy="14" r="0.8" fill="#ffffff" opacity="0.8"/>
+          <circle cx="515" cy="6" r="0.65" fill="#bae6fd" opacity="0.75"/>
+          <circle cx="560" cy="17" r="0.5" fill="#ffffff" opacity="0.6"/>
+          <circle cx="610" cy="9" r="0.85" fill="#e0f2fe" opacity="0.85"/>
+          <circle cx="670" cy="13" r="0.6" fill="#7dd3fc" opacity="0.7"/>
+          <circle cx="740" cy="7" r="0.95" fill="#ffffff" opacity="0.9"/>
+          <circle cx="795" cy="16" r="0.55" fill="#93c5fd" opacity="0.6"/>
+          <circle cx="830" cy="6" r="0.75" fill="#ffffff" opacity="0.8"/>
+          <circle cx="940" cy="14" r="0.85" fill="#fef9c3" opacity="0.85"/>
+          <circle cx="980" cy="7" r="0.6" fill="#bae6fd" opacity="0.7"/>
+          <circle cx="1025" cy="19" r="0.5" fill="#ffffff" opacity="0.55"/>
+          <circle cx="1070" cy="10" r="0.9" fill="#e0f2fe" opacity="0.85"/>
+          <circle cx="1120" cy="5" r="0.7" fill="#ffffff" opacity="0.75"/>
+          <circle cx="1165" cy="17" r="0.55" fill="#7dd3fc" opacity="0.6"/>
+          <circle cx="1210" cy="8" r="0.85" fill="#ffffff" opacity="0.85"/>
+          <circle cx="1250" cy="20" r="0.6" fill="#93c5fd" opacity="0.65"/>
+          <circle cx="1340" cy="12" r="0.75" fill="#ffffff" opacity="0.8"/>
+          <circle cx="1375" cy="6" r="0.9" fill="#e0f2fe" opacity="0.85"/>
+          <circle cx="1415" cy="18" r="0.6" fill="#7dd3fc" opacity="0.7"/>
+        </g>
+
+        <!-- Outer Exosphere Atmospheric Glow (Soft Diffuse Cyan-Blue) -->
+        <path d="M -30 68 Q 720 -16 1470 68" fill="none" stroke="url(#outerLimbGrad)" stroke-width="16" opacity="0.5" filter="url(#glow-exosphere)"/>
+
+        <!-- Stratosphere Atmospheric Glow (Electric Cyan) -->
+        <path d="M -30 68 Q 720 -16 1470 68" fill="none" stroke="url(#coreLimbGrad)" stroke-width="6.5" opacity="0.85" filter="url(#glow-stratosphere)"/>
+
+        <!-- Troposphere Vivid Blue Atmospheric Edge Line -->
+        <path d="M -30 68 Q 720 -16 1470 68" fill="none" stroke="#e0f2fe" stroke-width="2.2" opacity="0.95" filter="url(#glow-troposphere)"/>
+
+        <!-- Razor-Sharp Atmospheric Horizon Line -->
+        <path d="M -30 68 Q 720 -16 1470 68" fill="none" stroke="#ffffff" stroke-width="1.1" opacity="0.98"/>
+
+        <!-- Earth Body (Night-side Curvature below Horizon) -->
+        <path d="M -30 68 Q 720 -16 1470 68 L 1470 85 L -30 85 Z" fill="url(#earthBodyGrad)"/>
+
+        <!-- Earth Atmospheric Upper Haze Layer -->
+        <path d="M -30 68 Q 720 -16 1470 68 L 1470 85 L -30 85 Z" fill="url(#earthHaze)"/>
+
+        <!-- Subtle Cloud Swirls / Fronts from Orbit -->
+        <g class="earth-clouds" opacity="0.12">
+          <path d="M 80 72 Q 220 54 360 62 Q 440 68 530 58" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M 280 65 Q 380 57 480 62" fill="none" stroke="#7dd3fc" stroke-width="2" stroke-linecap="round"/>
+          <path d="M 640 54 Q 740 46 860 52 Q 950 56 1060 50" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+          <path d="M 820 50 Q 910 46 1000 52" fill="none" stroke="#7dd3fc" stroke-width="2" stroke-linecap="round"/>
+          <path d="M 1120 62 Q 1230 52 1360 65" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+        </g>
+
+        <!-- City Lights Sparkles (Human Civilization on Earth Night-Side) -->
+        <!-- Soft Amber Halo Layer -->
+        <g class="city-lights-glow" filter="url(#city-blur)" opacity="0.6">
+          <circle cx="210" cy="65" r="5" fill="#f59e0b"/>
+          <circle cx="340" cy="62" r="6" fill="#f59e0b"/>
+          <circle cx="490" cy="56" r="6" fill="#fbbf24"/>
+          <circle cx="630" cy="52" r="7" fill="#f59e0b"/>
+          <circle cx="780" cy="50" r="7" fill="#fbbf24"/>
+          <circle cx="910" cy="54" r="6" fill="#f59e0b"/>
+          <circle cx="1060" cy="58" r="6" fill="#fbbf24"/>
+          <circle cx="1220" cy="64" r="5" fill="#f59e0b"/>
+        </g>
+        <!-- Sharp Golden City Light Points & Clusters -->
+        <g class="city-lights-sharp">
+          <!-- Cluster 1 (Western Coast / Hub) -->
+          <circle cx="205" cy="64" r="1.1" fill="#fef08a"/>
+          <circle cx="208" cy="66" r="0.9" fill="#facc15"/>
+          <circle cx="213" cy="63" r="1.2" fill="#ffffff"/>
+          <circle cx="217" cy="65" r="0.8" fill="#f59e0b"/>
+
+          <!-- Cluster 2 (Central Plains / Cities) -->
+          <circle cx="335" cy="61" r="1.0" fill="#facc15"/>
+          <circle cx="339" cy="63" r="1.3" fill="#ffffff"/>
+          <circle cx="344" cy="60" r="0.9" fill="#fef08a"/>
+          <circle cx="348" cy="63" r="1.1" fill="#f59e0b"/>
+
+          <!-- Cluster 3 (Megacity Region A) -->
+          <circle cx="484" cy="55" r="1.0" fill="#fef08a"/>
+          <circle cx="488" cy="57" r="1.3" fill="#ffffff"/>
+          <circle cx="492" cy="54" r="0.9" fill="#facc15"/>
+          <circle cx="496" cy="56" r="1.2" fill="#fef08a"/>
+          <circle cx="501" cy="58" r="0.8" fill="#f59e0b"/>
+
+          <!-- Cluster 4 (Center Metropolitan Basin) -->
+          <circle cx="624" cy="51" r="1.1" fill="#fef08a"/>
+          <circle cx="628" cy="53" r="1.4" fill="#ffffff"/>
+          <circle cx="633" cy="50" r="0.9" fill="#facc15"/>
+          <circle cx="637" cy="52" r="1.2" fill="#fef08a"/>
+          <circle cx="642" cy="54" r="0.8" fill="#f59e0b"/>
+
+          <!-- Cluster 5 (Center-East Valley) -->
+          <circle cx="774" cy="49" r="1.2" fill="#ffffff"/>
+          <circle cx="779" cy="51" r="1.0" fill="#facc15"/>
+          <circle cx="784" cy="48" r="1.3" fill="#fef08a"/>
+          <circle cx="789" cy="51" r="0.8" fill="#f59e0b"/>
+
+          <!-- Cluster 6 (Eastern Coastal Corridor) -->
+          <circle cx="904" cy="53" r="1.1" fill="#facc15"/>
+          <circle cx="908" cy="55" r="1.4" fill="#ffffff"/>
+          <circle cx="913" cy="52" r="0.9" fill="#fef08a"/>
+          <circle cx="918" cy="54" r="1.1" fill="#f59e0b"/>
+
+          <!-- Cluster 7 (Archipelago / Peninsula) -->
+          <circle cx="1054" cy="57" r="1.0" fill="#fef08a"/>
+          <circle cx="1058" cy="59" r="1.3" fill="#ffffff"/>
+          <circle cx="1063" cy="56" r="0.9" fill="#facc15"/>
+          <circle cx="1067" cy="58" r="1.1" fill="#fef08a"/>
+
+          <!-- Cluster 8 (Far Eastern Ports) -->
+          <circle cx="1215" cy="63" r="1.0" fill="#facc15"/>
+          <circle cx="1219" cy="65" r="1.2" fill="#ffffff"/>
+          <circle cx="1224" cy="62" r="0.8" fill="#fef08a"/>
+        </g>
+      </svg>
+
+      <!-- NISAR Earth-Observation Satellite Graphic orbiting above the Horizon -->
+      <div class="orbit-satellite-wrap" aria-hidden="true">
+        <svg class="orbit-satellite-svg" viewBox="0 0 150 75" fill="none">
+          <defs>
+            <linearGradient id="radarBeamGrad" x1="0.5" y1="0" x2="0.3" y2="1">
+              <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.45"/>
+              <stop offset="45%" stop-color="#0284c7" stop-opacity="0.2"/>
+              <stop offset="100%" stop-color="#0369a1" stop-opacity="0"/>
+            </linearGradient>
+            <linearGradient id="solarGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#0284c7"/>
+              <stop offset="100%" stop-color="#082f49"/>
+            </linearGradient>
+            <radialGradient id="dishGrad" cx="45%" cy="45%" r="55%">
+              <stop offset="0%" stop-color="#fef08a" stop-opacity="0.9"/>
+              <stop offset="50%" stop-color="#f59e0b" stop-opacity="0.7"/>
+              <stop offset="100%" stop-color="#b45309" stop-opacity="0.4"/>
+            </radialGradient>
+            <filter id="radarGlow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="1.5" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+          </defs>
+
+          <!-- Radar beam / swath sweeping down to Earth -->
+          <g class="radar-beam-group">
+            <polygon points="56,26 12,74 88,74" fill="url(#radarBeamGrad)"/>
+            <path d="M 44 38 Q 54 42 66 36" stroke="#38bdf8" stroke-width="1.2" stroke-dasharray="3 3" opacity="0.75" fill="none"/>
+            <path d="M 34 50 Q 50 56 74 47" stroke="#38bdf8" stroke-width="1" stroke-dasharray="4 3" opacity="0.6" fill="none"/>
+            <path d="M 22 64 Q 46 72 82 60" stroke="#0ea5e9" stroke-width="0.8" stroke-dasharray="5 4" opacity="0.4" fill="none"/>
+          </g>
+
+          <!-- NISAR Spacecraft Assembly -->
+          <g class="nisar-satellite" transform="translate(10, 0)">
+            <!-- Left Solar Array Wing -->
+            <g transform="rotate(-18 78 17)">
+              <rect x="88" y="12" width="28" height="9" rx="1" fill="url(#solarGrad)" stroke="#38bdf8" stroke-width="0.75"/>
+              <line x1="97" y1="12" x2="97" y2="21" stroke="#38bdf8" stroke-width="0.5" opacity="0.7"/>
+              <line x1="106" y1="12" x2="106" y2="21" stroke="#38bdf8" stroke-width="0.5" opacity="0.7"/>
+              <line x1="88" y1="16.5" x2="116" y2="16.5" stroke="#38bdf8" stroke-width="0.5" opacity="0.7"/>
+              <line x1="82" y1="16.5" x2="88" y2="16.5" stroke="#cbd5e1" stroke-width="1.2"/>
+            </g>
+
+            <!-- Right Solar Array Wing -->
+            <g transform="rotate(-18 78 17)">
+              <rect x="42" y="12" width="26" height="9" rx="1" fill="url(#solarGrad)" stroke="#38bdf8" stroke-width="0.75"/>
+              <line x1="51" y1="12" x2="51" y2="21" stroke="#38bdf8" stroke-width="0.5" opacity="0.7"/>
+              <line x1="60" y1="12" x2="60" y2="21" stroke="#38bdf8" stroke-width="0.5" opacity="0.7"/>
+              <line x1="42" y1="16.5" x2="68" y2="16.5" stroke="#38bdf8" stroke-width="0.5" opacity="0.7"/>
+              <line x1="68" y1="16.5" x2="72" y2="16.5" stroke="#cbd5e1" stroke-width="1.2"/>
+            </g>
+
+            <!-- Spacecraft Bus (Central Body) -->
+            <rect x="71" y="11" width="12" height="12" rx="1.5" fill="#1e293b" stroke="#38bdf8" stroke-width="0.9"/>
+            <rect x="73" y="13" width="8" height="8" rx="0.5" fill="#d97706" opacity="0.85"/>
+            <circle cx="77" cy="17" r="1.5" fill="#e0f2fe"/>
+
+            <!-- Radar Boom Arm (Connecting Bus to 12m Reflector) -->
+            <line x1="72" y1="19" x2="52" y2="26" stroke="#94a3b8" stroke-width="1.6"/>
+            <line x1="73" y1="21" x2="54" y2="27" stroke="#64748b" stroke-width="1"/>
+            <circle cx="61" cy="23" r="1.2" fill="#38bdf8"/>
+
+            <!-- Large 12-meter Deployable Mesh Radar Reflector Antenna (NISAR Dish) -->
+            <g transform="rotate(-22 46 27)">
+              <ellipse cx="46" cy="27" rx="16" ry="7.5" fill="url(#dishGrad)" stroke="#fbbf24" stroke-width="1.2" filter="url(#radarGlow)"/>
+              <ellipse cx="46" cy="27" rx="11" ry="5" fill="none" stroke="#fef08a" stroke-width="0.5" opacity="0.8"/>
+              <line x1="30" y1="27" x2="62" y2="27" stroke="#f59e0b" stroke-width="0.6" opacity="0.85"/>
+              <line x1="46" y1="19.5" x2="46" y2="34.5" stroke="#f59e0b" stroke-width="0.6" opacity="0.85"/>
+              <line x1="35" y1="22" x2="57" y2="32" stroke="#fef08a" stroke-width="0.5" opacity="0.6"/>
+              <line x1="35" y1="32" x2="57" y2="22" stroke="#fef08a" stroke-width="0.5" opacity="0.6"/>
+              <circle cx="46" cy="27" r="2.2" fill="#ffffff" stroke="#38bdf8" stroke-width="0.8"/>
+              <circle cx="46" cy="27" r="0.8" fill="#38bdf8"/>
+            </g>
+          </g>
+        </svg>
       </div>
     </div>
 
-    <nav id="quick-jump" class="quick-jump" aria-label="Quick jump to a zone"></nav>
+    <div class="header-left">
+      <button id="sidebar-toggle" class="icon-button" type="button"
+              aria-controls="sidebar" aria-expanded="false" aria-label="Toggle study zones panel">
+        <span class="icon-button__bars" aria-hidden="true"></span>
+      </button>
+      <span class="brand__mark" aria-hidden="true" title="Dancing with the SARs"></span>
+      <div class="nasa-insignia" title="NASA · ISRO SAR Mission (NISAR)">
+        <svg class="nasa-insignia__meatball" viewBox="0 0 32 32" width="24" height="24" aria-hidden="true">
+          <circle cx="16" cy="16" r="15" fill="#0b3d91" stroke="rgba(56, 189, 248, 0.45)" stroke-width="0.8"/>
+          <path d="M5.5 17.5 L16 7 L25 24 L21 24 L16 14 L10 22 Z" fill="#fc3d21"/>
+          <ellipse cx="16" cy="16" rx="14.2" ry="5.6" transform="rotate(-28 16 16)" fill="none" stroke="#ffffff" stroke-width="1.1" stroke-dasharray="26 3 5 3"/>
+          <circle cx="9" cy="11" r="0.65" fill="#ffffff"/>
+          <circle cx="13" cy="7.5" r="0.5" fill="#ffffff"/>
+          <circle cx="23" cy="11.5" r="0.6" fill="#ffffff"/>
+          <circle cx="21" cy="8" r="0.45" fill="#ffffff"/>
+          <circle cx="8" cy="21" r="0.5" fill="#ffffff"/>
+          <circle cx="24.5" cy="18" r="0.45" fill="#ffffff"/>
+          <text x="16" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif" font-weight="900" font-size="8.2" fill="#ffffff" text-anchor="middle" letter-spacing="0.4">NASA</text>
+        </svg>
+        <span class="nasa-insignia__text">NISAR</span>
+      </div>
+    </div>
 
-    <span id="map-status" class="status-pill" role="status">Loading map…</span>
+    <div class="header-center">
+      <h1 class="brand__title">Dancing with the SARs</h1>
+      <p class="brand__subtitle">NISAR L-band radar: before &amp; after views of a changing Earth</p>
+    </div>
+
+    <div class="header-actions">
+      <span class="eonet-pill" title="Live NASA EONET v3 Feed Active">
+        <span class="eonet-pill__dot" aria-hidden="true"></span>
+        <span>NASA EONET v3</span>
+      </span>
+      <span id="map-status" class="status-pill" role="status">Loading map…</span>
+      <button id="download-report-btn" class="btn-header-download btn--download" type="button" disabled title="Select a study zone or click the map first">
+        <svg class="download-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        <span id="download-report-text">Download Report</span>
+      </button>
+    </div>
   </header>
 
   <main class="app-layout">
-    <aside id="sidebar" class="sidebar" aria-label="Science report">
+    <aside id="sidebar" class="sidebar" aria-label="Study zones and controls">
+      <section class="sidebar__section study-zones" id="study-zones-section">
+        <h2 class="sidebar__heading">Study zones</h2>
+        <nav id="zone-list" class="zone-list" aria-label="Select study zone"></nav>
+      </section>
+
       <section class="sidebar__section controls">
         <h2 class="sidebar__heading">Radar overlay</h2>
         <button id="toggle-radar" class="btn" type="button" aria-pressed="true" disabled>
@@ -66,16 +385,6 @@
           <input id="swipe-slider" type="range" min="0" max="100" step="1" value="50">
         </label>
       </section>
-
-      <section id="report-panel" class="sidebar__section report" aria-live="polite">
-        <h2 class="sidebar__heading">Science report</h2>
-        <p class="muted">Pick a zone from the header or click a marker to load its NISAR report.
-          Click anywhere else on the map to look up live NASA EONET events nearby.</p>
-      </section>
-
-      <footer class="sidebar__footer">
-        Base maps: &copy; OpenStreetMap contributors &middot; Esri World Imagery &middot; Live events: NASA EONET v3
-      </footer>
     </aside>
 
     <div id="sidebar-backdrop" class="sidebar-backdrop" hidden></div>
@@ -90,6 +399,21 @@
       </div>
       <noscript><p class="noscript">This map needs JavaScript enabled.</p></noscript>
     </div>
+
+    <!-- Dedicated Right-Side Science Report Panel -->
+    <aside id="sidebar-right" class="sidebar sidebar--right" aria-label="Science report">
+      <section id="report-panel" class="sidebar__section report" aria-live="polite">
+        <div id="report-content">
+          <h2 class="sidebar__heading">Science report</h2>
+          <p class="muted">Pick a study zone from the left sidebar or click a marker on the map to load its NISAR report.
+            Click anywhere else on the map to look up live NASA EONET events nearby.</p>
+        </div>
+      </section>
+
+      <footer class="sidebar__footer">
+        Base maps: &copy; OpenStreetMap contributors &middot; Esri World Imagery &middot; Live events: NASA EONET v3
+      </footer>
+    </aside>
   </main>
 </body>
 </html>
